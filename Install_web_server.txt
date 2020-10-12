@@ -9,3 +9,22 @@
     - Adding rules to a security group (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#adding-security-group-rule)
     - Type : HTTP; Protocol : TCP; Port Range : 80; Source : Custom
 9. Get public public IPv4 DNS for the instance and paste it in the browser : if nothing is in /var/www/html then Apache test page should be visible.
+10. To stop httpd (Apache) : sudo systemctl stop httpd
+11. To restart httpd (Apache) : sudo systemctl restart httpd
+12. After modification to reload : sudo systemctl reload httpd
+13. To automatically restart at reboot : sudo systemctl enable httpd
+14. To disable service : sudo systemctl disable httpd
+15. To get the status : sudo systemctl status httpd
+16. To unistall httpd : (http://howtolamp.com/lamp/requirements/removing-httpd/)
+    $ sudo yum list installed *httpd* 
+    $ sudo yum list installed *mod_*
+    $ sudo yum info httpd
+    $ sudo rpm -ql httpd
+    $ yum remove <package_name>
+17. Remove apache user and group :
+    $ sudo userdel -r apache (if this command doesn't work)
+    $ sudo rm -rfv /var/www
+18. Remove extra files
+    $ sudo rm -rfv /etc/httpd
+    $ sudo -rfv /usr/lib/httpd
+Docs for reference : https://httpd.apache.org/docs/2.4/programs/httpd.html
