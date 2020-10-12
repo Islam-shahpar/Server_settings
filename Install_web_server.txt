@@ -1,0 +1,11 @@
+1. Launch an Amazon Linux 2 instance 
+2. Connect to the instance using ssh -i <"key.pem"> <server_name> (Replace the keyname and server name)
+3. To view version of Amazon Linux : cat /etc/system-release (Make sure you are running Amazon Linux 2)
+4. Ensure all the packages are up to date : sudo yum update -y (The -y option installs the updates without asking for confirmation)
+5. To get the latest MariaDB and PHP packages : sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+6. Install httpd (Apache) : sudo yum install httpd -y
+7. Start the server : sudo systemctl enable --now httpd
+8. Allow inbound HTTP (port 80) connection : 
+    - Adding rules to a security group (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#adding-security-group-rule)
+    - Type : HTTP; Protocol : TCP; Port Range : 80; Source : Custom
+9. Get public public IPv4 DNS for the instance and paste it in the browser : if nothing is in /var/www/html then Apache test page should be visible.
