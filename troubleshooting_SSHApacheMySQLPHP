@@ -1,0 +1,35 @@
+SSH:
+
+$ps aux | grep sshd
+$sudo service ssh restart
+$sudo apt-get install openssh-server
+$ssh localhost
+$grep sshd /var/log/auth/log | less
+$cat /etc/host
+$ssh -p2222 username@localhost
+
+Apache:
+
+$sudo service apache2 stop
+
+NGINX:
+
+$apt install nginx
+$nginx -v
+$systemctl status
+$cd /etc/nginx
+$cd /var/log/nginx
+$cd /var/www
+$sudo su - 
+$systemctl status nginx --no-pager
+$systemctl start nginx
+$systemctl stop nginx
+$systemctl is-active nginx
+$systemctl reload nginx
+$nginx -h
+$nginx -t
+$nginx -T | less
+$view /etc/nginx/nginx.conf
+
+
+
